@@ -8,7 +8,7 @@ export const TaskItem: React.FC<{ task: Task }> = ({ task }) => {
   const [subtaskTitle, setSubtaskTitle] = useState('');
   const { addTask, fetchSubtasks } = useTasks();
   const [subtasks, setSubtasks] = useState<Task[]>([]);
-  const [noMoreSubtasks, setNoMoreSubtasks] = useState(false);
+  const [fetchedSubtasks, setFetchedSubtasks] = useState(false);
 
   useEffect(() => {
     if (addingSubtask) {
@@ -38,17 +38,17 @@ export const TaskItem: React.FC<{ task: Task }> = ({ task }) => {
         <div className={classes.taskItemTitle}>
           <strong>{task.title}</strong>
         </div>
-        <button onClick={() => setAddingSubtask((s)=>!s)}>{addingSubtask ? 'X' : 'Add Subtask'}</button>
+        {fetchedSubtasks && <button onClick={() => setAddingSubtask((s)=>!s)}>{addingSubtask ? 'X' : 'Add Subtask'}</button>}
         {addingSubtask && <input onChange={(e) => setSubtaskTitle(e.target.value)} type="text" value={subtaskTitle} />}
         {addingSubtask && (
           <button disabled={subtaskTitle.trim().length === 0} onClick={addSubtask}>
             Submit
           </button>
         )}
-        {!noMoreSubtasks && (
+        {!fetchedSubtasks && (
           <button onClick={async () => {
             const fetchedSubtasks = await fetchSubtasks(task.id);
-            setNoMoreSubtasks(true);
+            setFetchedSubtasks(true);
             setSubtasks(fetchedSubtasks);
           }}>
             +
