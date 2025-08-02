@@ -3,7 +3,7 @@ import { InjectRepository } from "@nestjs/typeorm";
 import { IsNull, Repository } from "typeorm";
 import { Task } from "./entities/tasks.entity";
 import { CreateTaskDto } from "./dto/create-task.dto";
-import { TaskDTO } from "src/types";
+import { TaskDTO } from "src/tasks/dto/task-dto";
 
 function toTaskDTO(task: Task): TaskDTO {
   return {
