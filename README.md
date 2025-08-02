@@ -21,3 +21,10 @@
 - App structure was refactored as a monorepo. In the future other apps may be added that consume this api, also any common libraries (that say, define shared data types like the TaskDTO) may be placed here. Additionally, all apps in the project may be built with a single build command, and any shared dependencies will not be duplicated. (Perhaps also personal preference, I prefer to work this way as I believe it's cleaner and how I'm used to working).
 
 - Added .dockerignore files. This way, if someone builds and runs these apps outside of Docker (for development perhaps) the build process won't copy node_modules and dist
+
+
+##Future Improvements
+- Create a more elaborate UI, perhaps using some kind of framework like antd or Bootstrap
+- Create a library inside the monorepo to hold any common data types or functions (TaskDTO definition is currently duplicated accross the two projects, that can lead to maintainability issues)
+- Instead of REST, rework app to use socket.io, GraphQL or similar to allow live updates of tasks (assuming a multiuser system)
+- Implement some kind of authentication; (assuming a multiuser system) one user cannot modify the tickets of another user (unless they allow them to)
