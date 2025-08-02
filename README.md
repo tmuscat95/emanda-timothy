@@ -17,6 +17,6 @@ This was we only fetch the data we need.
 
 - Creating tasks remains unchanged
 
-- App structure was refactored as a monorepo. In the future other apps may be added that consume this api, also any common libraries (that say, define shared data types like the TaskDTO) may be placed here. (perhaps also personal preference, I prefer to work this way as I believe it's cleaner and how I'm used to working)
+- App structure was refactored as a monorepo. In the future other apps may be added that consume this api, also any common libraries (that say, define shared data types like the TaskDTO) may be placed here. Additionally, all apps in the project may be built with a single build command, and any shared dependencies will not be duplicated. (Perhaps also personal preference, I prefer to work this way as I believe it's cleaner and how I'm used to working).
 
 - Added .dockerignore files. This way, if someone builds and runs these apps outside of Docker (for development perhaps) the build process won't copy node_modules and dist
