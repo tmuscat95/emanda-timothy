@@ -1,0 +1,14 @@
+{ 
+  "name": "tasks",
+  "private": true,
+  "workspaces": [
+    "/*"
+  ],
+  "scripts": {
+    "build": "npm run build --workspaces",
+    "dev": "npm run dev --workspaces"
+  },
+  "devDependencies": {
+    "typescript": "^5.0.0"
+  }
+}
