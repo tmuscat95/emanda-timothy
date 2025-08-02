@@ -1,10 +1,14 @@
-import axios from 'axios';
-import { Task } from './types';
+import axios from "axios";
+import { Task } from "./types";
 
-const API_BASE = '/api/tasks';
+const API_BASE = "/api/tasks";
 
 export default class API {
-  private static async fetch(url: string, method: 'get' | 'post' | 'put' | 'delete', data?: any): Promise<any> {
+  private static async fetch(
+    url: string,
+    method: "get" | "post" | "put" | "delete",
+    data?: any,
+  ): Promise<any> {
     try {
       const options = {
         method,
@@ -14,25 +18,25 @@ export default class API {
       const res = await axios.request(options);
       return res.data ?? [];
     } catch (error) {
-        console.error('API Error:', error);
-        throw error;
+      console.error("API Error:", error);
+      throw error;
     }
   }
 
   static async fetchSubtasks(taskId: number): Promise<Task[]> {
-    return this.fetch(`${API_BASE}/${taskId}/subtasks`, 'get');
+    return this.fetch(`${API_BASE}/${taskId}/subtasks`, "get");
   }
 
   static async fetchTopLevelTasks(): Promise<Task[]> {
-    return this.fetch(`${API_BASE}/top-level`, 'get');
+    return this.fetch(`${API_BASE}/top-level`, "get");
   }
 
   static async createTask(title: string, parentId?: number): Promise<Task> {
-    return this.fetch(API_BASE, 'post', { title, parentId });
+    return this.fetch(API_BASE, "post", { title, parentId });
   }
 
   static async fetchAllTasks(): Promise<Task[]> {
-    return this.fetch(API_BASE, 'get');
+    return this.fetch(API_BASE, "get");
   }
 }
 
@@ -48,7 +52,7 @@ export default class API {
 
 // export const fetchTopLevelTasks = async (): Promise<Task[]> => {
 //   const res = await axios.get(`${API_BASE}/top-level`);
-//   return res.data ?? []; 
+//   return res.data ?? [];
 // }
 
 // export const createTask = async (title: string, parentId?: number): Promise<Task> => {

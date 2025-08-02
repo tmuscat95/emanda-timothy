@@ -1,4 +1,4 @@
-{ 
+{
   "name": "tasks",
   "private": true,
   "workspaces": [
@@ -9,6 +9,7 @@
     "dev": "npm run dev --workspaces"
   },
   "devDependencies": {
+    "prettier": "~3.6.2",
     "typescript": "^5.0.0"
   }
 }

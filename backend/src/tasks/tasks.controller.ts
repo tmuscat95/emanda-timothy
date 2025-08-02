@@ -1,8 +1,8 @@
-import { Controller, Get, Post, Body, Param } from '@nestjs/common';
-import { TasksService } from './tasks.service';
-import { CreateTaskDto } from './dto/create-task.dto';
+import { Controller, Get, Post, Body, Param } from "@nestjs/common";
+import { TasksService } from "./tasks.service";
+import { CreateTaskDto } from "./dto/create-task.dto";
 
-@Controller('tasks')
+@Controller("tasks")
 export class TasksController {
   constructor(private readonly tasksService: TasksService) {}
 
@@ -16,14 +16,13 @@ export class TasksController {
     return this.tasksService.findAll();
   }
 
-  @Get('top-level')
+  @Get("top-level")
   findAllTopLevel() {
     return this.tasksService.findAllTopLevel();
   }
 
-  @Get(':id/subtasks')
-  findSubtasks(@Param('id') id: number) {
+  @Get(":id/subtasks")
+  findSubtasks(@Param("id") id: number) {
     return this.tasksService.findSubtasks(id);
   }
-
 }

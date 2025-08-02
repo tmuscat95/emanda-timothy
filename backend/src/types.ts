@@ -3,4 +3,4 @@ export type TaskDTO = {
   title: string;
   parentId?: number;
   subtaskIds?: number[];
-}
+};

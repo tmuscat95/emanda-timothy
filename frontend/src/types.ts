@@ -1,8 +1,8 @@
-export interface TaskDTO  {
+export interface TaskDTO {
   id: number;
   title: string;
   parentId?: number;
   subtaskIds?: number[];
 }
 
-export type Task = TaskDTO & {} // possibly extend later ?
+export type Task = TaskDTO & {}; // possibly extend later ?
